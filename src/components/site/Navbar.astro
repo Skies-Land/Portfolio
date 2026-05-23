@@ -1,0 +1,119 @@
+---
+// ICÔNES
+import { FaBars, FaTimes } from "react-icons/fa";
+
+// Tableau des liens de navigation
+const links = [
+    { href: "/#home", label: "Accueil" },
+    { href: "/#projets", label: "Projets" },
+    { href: "/#services", label: "Mes services" },
+];
+---
+
+<header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 py-5">
+    <div class="mx-auto max-w-6xl px-4">
+        <!-- NavBar -->
+        <div class="glass border border-white/5 rounded-2xl px-4 sm:px-6 py-3 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="/" class="font-mono text-sm tracking-tight text-foreground hover:text-primary transition-colors">
+                J.A. <span class="text-muted-foreground">/</span> Dev
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-1">
+                {
+                links.map((l) => (
+                    <a
+                        href={l.href}
+                        class="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md"
+                    >
+                        {l.label}
+                    </a>
+                ))
+                }
+            </nav>
+
+            <!-- Bouton de redirection desktop -->
+            <div class="flex items-center gap-2">
+                <a
+                    href="/#contact"
+                    class="hidden sm:inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity">
+                    Contactez-moi →
+                </a>
+                <button
+                    type="button"
+                    id="menu-toggle"
+                    aria-label="Menu"
+                    class="md:hidden p-2 rounded-md text-muted-foreground hover:text-foreground">
+                    <FaBars size={18} className="icon-open inline-block" />
+                    <FaTimes size={18} className="icon-close hidden" />
+                </button>
+            </div>
+        </div>
+
+        <!-- Bouton de redirection mobile  -->
+        <div id="mobile-menu" class="hidden md:hidden mt-2 glass border border-white/5 rounded-2xl p-3 space-y-1">
+            {
+                links.map((l) => (
+                <a
+                    href={l.href}
+                    class="mobile-link block px-3 py-2 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-white/5"
+                >
+                    {l.label}
+                </a>
+                ))
+            }
+            <a
+                href="/#contact"
+                class="mobile-link block px-3 py-2 rounded-md text-sm font-medium text-primary"
+                >
+                Contactez-moi →
+            </a>
+        </div>
+    </div>
+</header>
+
+<script>
+// Script pour la navbar (gestion du scroll et du menu mobile)
+    // Gestion de l'interactivité de la navbar
+    const navbar = document.getElementById("navbar");
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const iconOpen = menuToggle?.querySelector(".icon-open");
+    const iconClose = menuToggle?.querySelector(".icon-close");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    // 1. Gestion de l'état du scroll
+    const onScroll = () => {
+        if (window.scrollY > 12) {
+            navbar?.classList.remove("py-5");
+            navbar?.classList.add("py-3");
+        } else {
+            navbar?.classList.remove("py-3");
+            navbar?.classList.add("py-5");
+        }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // Exécution une première fois au chargement
+
+    // 2. Gestion du menu mobile (ouverture/fermeture)
+    menuToggle?.addEventListener("click", () => {
+        mobileMenu?.classList.toggle("hidden");
+        iconOpen?.classList.toggle("hidden");
+        iconOpen?.classList.toggle("inline-block");
+        iconClose?.classList.toggle("hidden");
+        iconClose?.classList.toggle("inline-block");
+    });
+
+    // 3. Gestion de la fermeture du menu si on clique sur un lien (sur mobile)
+    mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            mobileMenu?.classList.add("hidden");
+            iconOpen?.classList.remove("hidden");
+            iconOpen?.classList.add("inline-block");
+            iconClose?.classList.add("hidden");
+            iconClose?.classList.remove("inline-block");
+        });
+    });
+</script>

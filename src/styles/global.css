@@ -1,25 +1,132 @@
 @import "tailwindcss";
-@import "@fontsource/geist-sans";
-@import "@fontsource/geist-mono";
+@plugin "tailwindcss-animate";
 
-@theme {
-  /* Colors */
-  --color-background: #0d0d0f;
-  --color-surface: #1a1a1e;
-  --color-primary: #8b5cf6;
-  --color-border-subtle: #2c2c2e;
-  --color-foreground: #e4e4e7;
-  --color-muted: #a1a1aa;
+@custom-variant dark (&:is(.dark *));
 
-  /* Fonts */
-  --font-sans: "Geist Sans", "Geist", ui-sans-serif, system-ui, sans-serif;
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-border: var(--surface-border);
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+  --shadow-glow: 0 0 0 1px color-mix(in oklab, var(--primary) 40%, transparent),
+    0 8px 40px -8px color-mix(in oklab, var(--primary) 35%, transparent);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Carbone profond */
+  --background: oklch(0.145 0.003 286);
+  --foreground: oklch(0.911 0.003 286);
+
+  /* Surfaces (cartes / menus) */
+  --surface: oklch(0.197 0.005 286);
+  --surface-border: oklch(0.247 0.006 286);
+  --card: oklch(0.197 0.005 286);
+  --card-foreground: oklch(0.911 0.003 286);
+  --popover: oklch(0.197 0.005 286);
+  --popover-foreground: oklch(0.911 0.003 286);
+
+  /* Violet améthyste */
+  --primary: oklch(0.606 0.25 292);
+  --primary-foreground: oklch(0.985 0 0);
+
+  --secondary: oklch(0.247 0.006 286);
+  --secondary-foreground: oklch(0.911 0.003 286);
+
+  --muted: oklch(0.247 0.006 286);
+  --muted-foreground: oklch(0.708 0.011 286);
+
+  --accent: oklch(0.606 0.25 292 / 0.15);
+  --accent-foreground: oklch(0.911 0.003 286);
+
+  --destructive: oklch(0.577 0.245 27);
+  --destructive-foreground: oklch(0.985 0 0);
+
+  --border: oklch(0.265 0.005 286);
+  --input: oklch(0.247 0.006 286);
+  --ring: oklch(0.606 0.25 292);
+}
+
+.dark {
+  --background: oklch(0.145 0.003 286);
+  --foreground: oklch(0.911 0.003 286);
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+
+  /* Subtle radial ambience */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(60rem 40rem at 80% -10%, color-mix(in oklab, var(--primary) 12%, transparent), transparent 60%),
+      radial-gradient(50rem 30rem at -10% 30%, color-mix(in oklab, var(--primary) 8%, transparent), transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  .glass {
+    background-color: color-mix(in oklab, var(--surface) 80%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .surface-card {
+    background-color: var(--surface);
+    border: 1px solid color-mix(in oklab, white 5%, transparent);
+  }
+  .text-gradient {
+    background: linear-gradient(180deg, var(--foreground) 0%, color-mix(in oklab, var(--foreground) 55%, transparent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }

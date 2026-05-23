@@ -1,0 +1,66 @@
+---
+// ICÔNES
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+---
+
+<footer class="border-t border-border/60 mt-32">
+  <div class="mx-auto max-w-6xl px-4 py-12 grid gap-8 md:grid-cols-3 items-start">
+
+    <!-- Identité -->
+    <div>
+      <a href="/" class="font-mono text-sm">
+        J.A. <span class="text-muted-foreground">/</span> Dev
+      </a>
+      <p class="text-sm text-muted-foreground mt-3 max-w-xs">
+        Concepteur Développeur Web. Architectures modernes, code lisible,
+        documentation & exécution rigoureuse.
+      </p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex flex-col gap-2 text-sm">
+      <a href="/#home" class="text-muted-foreground hover:text-foreground">
+        Accueil
+      </a>
+      <a href="/#projets" class="text-muted-foreground hover:text-foreground">
+        Projets
+      </a>
+      <a href="/#services" class="text-muted-foreground hover:text-foreground">
+        Mes services
+      </a>
+    </nav>
+
+    <!-- Réseaux -->
+    <div class="flex md:justify-end gap-3">
+      <a
+        href="https://github.com/Skies-Land"
+        target="_blank"
+        rel="noreferrer noopener"
+        aria-label="GitHub"
+        class="p-2 rounded-md border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
+      >
+        <FaGithub size={18} />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/jonathan-araldi/"
+        target="_blank"
+        rel="noreferrer noopener"
+        aria-label="LinkedIn"
+        class="p-2 rounded-md border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
+      >
+        <FaLinkedin size={18} />
+      </a>
+    </div>
+  </div>
+
+  <!-- copyright -->
+  <div class="border-t border-border/60">
+    <div class="mx-auto max-w-6xl px-4 py-5 text-xs font-mono text-muted-foreground flex flex-wrap justify-between gap-2">
+      <!-- TODO: configurer le copyright pour l'année en cours -->
+      <span>© 2026 Jonathan. Tous droits réservés.</span>
+      <!-- TODO: Reduire la taille du texte -->
+      <span>Développé avec · Astro · Tailwind CSS | Typographie · Geist</span>
+    </div>
+  </div>
+
+</footer>
