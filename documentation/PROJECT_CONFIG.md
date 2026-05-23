@@ -6,7 +6,7 @@ Ce document résume la configuration technique du projet de **portfolio**.
 * **Framework front :** **[Astro](https://docs.astro.build/fr/getting-started/)**
 * **Composants dynamique :** **[React](https://react.dev/)**
 * **Langage :** **[TypeScript](https://www.typescriptlang.org/)**
-* **Contenu (base de données) :** **[Markdown](https://docs.framasoft.org/fr/grav/markdown.html)**
+* **Données :** **[Markdown](https://docs.framasoft.org/fr/grav/markdown.html)**
 * **Styling :** **[Tailwind CSS](https://tailwindcss.com/)**
 * **Icons :** **[React Icons](https://react-icons.github.io/react-icons/)**
 
@@ -39,8 +39,8 @@ Ce document résume la configuration technique du projet de **portfolio**.
 │   ├── assets/        # Fichiers statiques
 │   ├── components/    # Composants réutilisables
 │   │   ├── site/      # Composants majeurs et structurels
-│   │   └── ui/        # Petits éléments d'interface (Boutons, Inputs, etc.)
-│   ├── data/          # Fichiers de données
+│   │   └── ui/        # Logique fonctionnelle
+│   ├── data/          # Fichiers de données (frontmatter)
 │   ├── layouts/       # Modèles de mise en page globale
 │   ├── pages/         # Pages de l'application
 │   └── styles/        # Feuilles de style globales

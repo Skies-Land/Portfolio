@@ -33,6 +33,8 @@
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
   --shadow-glow: 0 0 0 1px color-mix(in oklab, var(--primary) 40%, transparent),
     0 8px 40px -8px color-mix(in oklab, var(--primary) 35%, transparent);
+  --color-success: var(--success);
+  --color-error: var(--error);
 }
 
 :root {
@@ -50,8 +52,7 @@
   --popover: oklch(0.197 0.005 286);
   --popover-foreground: oklch(0.911 0.003 286);
 
-  /* Violet améthyste */
-  --primary: oklch(0.606 0.25 292);
+  --primary: oklch(0.606 0.25 292);  /* Violet améthyste */
   --primary-foreground: oklch(0.985 0 0);
 
   --secondary: oklch(0.247 0.006 286);
@@ -69,6 +70,9 @@
   --border: oklch(0.265 0.005 286);
   --input: oklch(0.247 0.006 286);
   --ring: oklch(0.606 0.25 292);
+
+  --success: oklch(0.65 0.15 150);
+  --error: oklch(0.6 0.2 25);
 }
 
 .dark {
