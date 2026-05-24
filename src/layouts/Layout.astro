@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Footer from '../components/site/Footer.astro';
 import Navbar from '../components/site/Navbar.astro';
+import { Toaster } from '../components/ui/Toaster';
 
 interface Props {
 	title?: string;
@@ -25,8 +26,7 @@ const {
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content="Architectures web modernes, robustes et centrées sur l'expérience utilisateur." />
 		<meta name="twitter:card" content="summary_large_image" />
-		<!-- TODO: ajouter un favicon -->
-		<link rel="icon" type="image/svg+xml" href="" />
+		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 		<title>{title}</title>
 		
 		<!-- Integration des polices  -->
@@ -43,5 +43,6 @@ const {
 			</main>
 			<Footer />
 		</div>
+		<Toaster client:load />
 	</body>
 </html>

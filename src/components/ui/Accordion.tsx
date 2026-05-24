@@ -1,10 +1,15 @@
+// DÉPENDANCE
 import React, { useState } from "react";
+
+// ICÔNE
 import { FiChevronDown } from "react-icons/fi";
 
+// PROPS
 interface AccordionProps {
   items: { q: string; a: string }[];
 }
 
+/** Logique fonctionne du menu déroulant de la section FAQ */
 export default function Accordion({ items }: AccordionProps) {
   // L'état qui mémorise l'index de la question actuellement ouverte. null si tout est fermé.
   const [openIndex, setOpenIndex] = useState<number | null>(null);

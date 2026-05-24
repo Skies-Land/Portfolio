@@ -1,0 +1,66 @@
+---
+//  ICÔNES
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+
+// COMPOSANT
+import { ContactForm } from "../ui/ContactForm";
+---
+
+<section id="contact" class="py-24 sm:py-32">
+    <div class="mx-auto max-w-6xl px-4">
+        <div class="grid lg:grid-cols-5 gap-10">
+            <div class="lg:col-span-2 space-y-8">
+                <div>
+                    <p class="font-mono text-xs text-primary mb-4">// contact</p>
+                    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight leading-tight">
+                        Prêt à structurer votre prochain projet ?
+                    </h2>
+                    <p class="text-muted-foreground mt-4 leading-relaxed">
+                        Laissez-moi un message, je vous répondrai avec intérêt.
+                    </p>
+                </div>
+
+                <div class="surface-card rounded-2xl p-5 space-y-4">
+                    <p class="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                        Réseaux & Code
+                    </p>
+                    <div class="flex flex-col gap-3">
+                        <a
+                            href="https://github.com/Skies-Land"
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            class="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
+                        >
+                            <span class="size-9 rounded-md border border-border/60 grid place-items-center group-hover:border-primary/40 transition-colors">
+                                <FiGithub size={15} />
+                            </span>
+                            Voir mes dépôts GitHub
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/jonathan-araldi/"
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            class="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
+                        >
+                            <span class="size-9 rounded-md border border-border/60 grid place-items-center group-hover:border-primary/40 transition-colors">
+                                <FiLinkedin size={15} />
+                            </span>
+                            Mon profil LinkedIn
+                        </a>
+                        <a
+                            href="mailto:jonathan.araldi@outlook.com"
+                            class="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
+                        >
+                            <span class="size-9 rounded-md border border-border/60 grid place-items-center group-hover:border-primary/40 transition-colors">
+                                <FiMail size={15} />
+                            </span>
+                            jonathan.araldi@outlook.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <ContactForm client:visible />
+        </div>
+    </div>
+</section>

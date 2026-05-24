@@ -8,7 +8,7 @@ projets:
     type: Projet Académique (Bac+3)
     year: 2026
     role: Lead Front-end
-    coverImage: /images/projet-m-motors.png
+    coverImage: /public/projet-m-motors.png
     tags: [React, TypeScript, Tailwind, FastAPI, MongoDB]
     shortDescription: Plateforme web de vente et location de véhicules avec espace utilisateur sécurisé.
     longDescription: Conçu dans le cadre de ma validation de Développeur d'Application Web (Bac+3). M-Motors est une application web complète qui met en relation des utilisateurs pour la vente et la location de véhicules. L'enjeu majeur était de concevoir une architecture front-end capable de s'interfacer de manière sécurisée avec une base de données cloud.
@@ -38,7 +38,7 @@ projets:
     type: Placeholder
     year: 2026
     role: placeholder
-    coverImage: /images/projet-placeholder.png
+    coverImage: /public/projet-placeholder.png
     tags: [HTML, CSS, JavaScript]
     shortDescription: Placeholder description
     longDescription: Placeholder description
@@ -57,7 +57,7 @@ projets:
     type: Placeholder
     year: 2026
     role: placeholder
-    coverImage: /images/projet-placeholder.png
+    coverImage: /public/projet-placeholder.png
     tags: [HTML, CSS, JavaScript]
     shortDescription: Placeholder description
     longDescription: Placeholder description
@@ -76,7 +76,7 @@ projets:
     type: Placeholder
     year: 2026
     role: placeholder
-    coverImage: /images/projet-placeholder.png
+    coverImage: /public/projet-placeholder.png
     tags: [HTML, CSS, JavaScript]
     shortDescription: Placeholder description
     longDescription: Placeholder description

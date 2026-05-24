@@ -10,6 +10,11 @@ Ce document résume la configuration technique du projet de **portfolio**.
 * **Styling :** **[Tailwind CSS](https://tailwindcss.com/)**
 * **Icons :** **[React Icons](https://react-icons.github.io/react-icons/)**
 
+## 📦 Dépendances principales
+* **[Marked](https://marked.js.org/)** : Parseur léger pour compiler les données Markdown (Fichiers YAML) en HTML.
+* **[Sonner](https://sonner.emilkowal.ski/)** : Système de notifications Toast moderne et accessible pour React.
+* **[Tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate)** : Plugin Tailwind pour simplifier la création d'animations fluides.
+
 ## 🚀 Déploiement
 * **Hébergement :** **[Netlify](https://www.netlify.com/)**
 * **Déploiement :** CI/CD via GitHub
@@ -34,16 +39,19 @@ Ce document résume la configuration technique du projet de **portfolio**.
 ## 📂 Organisation du code
 ```text
 ├── documentation/     # Documentation technique du projet
-├── public/            # Fichiers exposés directement à la racine du site
-└── src/               # Code source de l'application finale (Astro)
-│   ├── assets/        # Fichiers statiques
-│   ├── components/    # Composants réutilisables
-│   │   ├── site/      # Composants majeurs et structurels
-│   │   └── ui/        # Logique fonctionnelle
-│   ├── data/          # Fichiers de données (frontmatter)
-│   ├── layouts/       # Modèles de mise en page globale
-│   ├── pages/         # Pages de l'application
-│   └── styles/        # Feuilles de style globales
+├── public/            # Fichiers exposés à la racine
+└── src/               # Code source de l'application
+    ├── assets/        # Fichiers statiques internes
+    ├── components/    # Composants de l'application
+    │   ├── site/      # Composants structurels Astro purs
+    │   └── ui/        # Composants d'interface
+    ├── data/          # Fichiers de données Markdown
+    ├── layouts/       # Modèles de mise en page globale
+    ├── pages/         # Système de routage d'Astro
+    │   ├── projets/   #
+    │   │   └── [id].astro # Page générée dynamiquement (getStaticPaths)
+    │   └── index.astro    # Page d'accueil
+    └── styles/        # Configuration Tailwind (global.css)
 ```
 
 ## 👨‍💻 Skies-Land - Jonathan Araldi
