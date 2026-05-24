@@ -1,0 +1,157 @@
+---
+// COMPOSANT
+import Layout from "../../layouts/Layout.astro";
+
+// ICÔNES
+import { FiArrowLeft, FiExternalLink } from "react-icons/fi";
+
+// DÉPENDANCE POUR STRUCTURER LE CONTENU DU MARKDOWN
+import { marked } from "marked";
+
+// IMPORT DES DONNÉES DEPUIS LE MARKDOWN
+import { frontmatter } from "../../data/Projets.md";
+
+export async function getStaticPaths() {
+    const projets = frontmatter.projets;
+
+    return projets.map((p: any) => ({
+        params: { id: p.id },
+        props: { project: p, allProjects: projets },
+    }));
+}
+
+const { project, allProjects } = Astro.props;
+
+// Récupération des 2 autres projets pour la section "Suite"
+const others = allProjects.filter((p: any) => p.id !== project.id).slice(0, 2);
+---
+
+<Layout>
+    <article class="pt-32 pb-24">
+        <div class="mx-auto max-w-4xl px-4">
+            <a
+                href="/#projets"
+                class="inline-flex items-center gap-2 font-mono text-xs text-muted-foreground hover:text-primary mb-10 transition-colors"
+            >
+                <FiArrowLeft size={14} /> Tous les projets
+            </a>
+
+            <div class="flex flex-wrap items-center gap-3 font-mono text-xs text-muted-foreground mb-5">
+                <span>{project.year}</span>
+                <span class="text-border">·</span>
+                <span>{project.type}</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight leading-tight text-gradient">
+                {project.title}
+            </h1>
+            <div 
+                class="text-lg text-muted-foreground mt-5 max-w-2xl leading-relaxed [&_p]:mb-4 last:[&_p]:mb-0 [&_a]:text-primary hover:[&_a]:underline [&_strong]:text-foreground [&_strong]:font-medium"
+                set:html={marked.parse(project.longDescription || "")}
+            />
+
+            <div class="mt-10 surface-card rounded-2xl overflow-hidden">
+                <img
+                    src={project.coverImage}
+                    alt={project.title}
+                    width={1280}
+                    height={896}
+                    class="w-full object-cover"
+                />
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-6 mt-12 surface-card rounded-2xl p-6">
+                <div>
+                    <p class="font-mono text-[10px] uppercase tracking-wider text-muted-foreground mb-3">
+                        Rôle
+                    </p>
+                    <p class="text-sm text-foreground leading-relaxed">{project.role}</p>
+                </div>
+                <div>
+                    <p class="font-mono text-[10px] uppercase tracking-wider text-muted-foreground mb-3">
+                        Architecture
+                    </p>
+                    <p class="text-sm text-foreground leading-relaxed">
+                        {Array.isArray(project.architecture) ? project.architecture.join(", ") : project.architecture}
+                    </p>
+                </div>
+                <div>
+                    <p class="font-mono text-[10px] uppercase tracking-wider text-muted-foreground mb-3">
+                        Stack
+                    </p>
+                    <div class="flex flex-wrap gap-1.5">
+                        {project.tags.map((t: string) => (
+                            <span class="font-mono text-[10px] uppercase tracking-wider px-2 py-1 rounded-md bg-white/4 border border-white/5 text-muted-foreground">
+                                {t}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 space-y-8 [&_a]:text-primary hover:[&_a]:underline [&_strong]:text-foreground [&_strong]:font-medium [&_p]:mb-4 last:[&_p]:mb-0 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1.5 [&_ul]:mb-4 [&_li]:leading-relaxed">
+                <div>
+                    <h2 class="text-xl font-semibold tracking-tight mb-3">Problématique</h2>
+                    <div class="text-muted-foreground leading-relaxed" set:html={marked.parse(project.Issues || "")} />
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold tracking-tight mb-3">Approche</h2>
+                    <div class="text-muted-foreground leading-relaxed" set:html={marked.parse(project.Approach || "")} />
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold tracking-tight mb-3">Résultat</h2>
+                    <div class="text-muted-foreground leading-relaxed" set:html={project.Result ? marked.parse(project.Result) : ""} />
+                </div>
+            </div>
+
+            <div class="mt-16 flex flex-wrap gap-3">
+                <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
+                >
+                    <FiExternalLink size={15} />
+                    Voir le projet
+                </a>
+                <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium hover:bg-white/5 transition-colors"
+                >
+                    Code source
+                </a>
+            </div>
+
+            {others.length > 0 && (
+                <div class="mt-24 pt-12 border-t border-border/60">
+                    <p class="font-mono text-xs text-primary mb-6">// suite</p>
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        {others.map((p: any) => (
+                            <a
+                                href={`/projets/${p.id}`}
+                                class="group surface-card rounded-2xl overflow-hidden hover:-translate-y-1 hover:border-primary/40 hover:shadow-glow transition-all"
+                            >
+                                <div class="aspect-16/10 overflow-hidden border-b border-white/5">
+                                    <img
+                                        src={p.coverImage}
+                                        alt={p.title}
+                                        loading="lazy"
+                                        class="size-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                                    />
+                                </div>
+                                <div class="p-5">
+                                    <h3 class="font-semibold">{p.title}</h3>
+                                    <p class="text-sm text-muted-foreground mt-1 line-clamp-1">
+                                        {p.shortDescription}
+                                    </p>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            )}
+        </div>
+    </article>
+</Layout>
