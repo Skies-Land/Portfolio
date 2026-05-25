@@ -15,7 +15,18 @@
 - 🚀 **Routing dynamique** : Génération statique (SSG) des pages de projets via des fichiers Markdown.
 
 ## 🧰 **STACKS UTILISÉS**
- `src` : Application développée avec **[Astro](https://astro.build/) + [React](https://react.dev/) + [Tailwind CSS](https://tailwindcss.com/)**. 
+
+<p align="center">
+  <img src="./src/assets/svg/astrojs.svg" alt="Astro" width="30" /> &nbsp; &nbsp; &nbsp;
+  <img src="./src/assets/svg/react.svg" alt="React" width="50" /> &nbsp; &nbsp; &nbsp;
+  <img src="./src/assets/svg/react-icons.svg" alt="React Icons" width="50" /> &nbsp; &nbsp; &nbsp;
+  <img src="./src/assets/svg/typescript.svg" alt="TypeScript" width="50" /> &nbsp; &nbsp; &nbsp;
+  <img src="./src/assets/svg/tailwind-css.svg" alt="Tailwind CSS" width="50" /> &nbsp; &nbsp; &nbsp;
+  <img src="./src/assets/svg/netlify.svg" alt="Netlify" width="50" />
+</p>
+<br>
+
+ `src/` : Application développée avec **[Astro](https://astro.build/) + [React](https://react.dev/) + [Tailwind CSS](https://tailwindcss.com/)**. 
 
  **Astro** : Générateur de site statique hyper performant gérant le Layout et le routage. <br>
  **React** : Réservé pour les composants interactifs complexes de l'interface (Island Architecture). <br>

@@ -15,7 +15,8 @@ export default function Accordion({ items }: AccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleItem = (index: number) => {
-    // Si on clique sur la question déjà ouverte, on la ferme (null), sinon on ouvre la nouvelle (index)
+    // Si une question est déjà ouverte, fermeture de celle-ci (null)
+    // sinon ouverture de la nouvelle question (index)
     setOpenIndex(openIndex === index ? null : index);
   };
 

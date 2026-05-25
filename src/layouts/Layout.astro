@@ -1,9 +1,17 @@
 ---
+// STYLE
 import '../styles/global.css';
+
+// FONTS
+import '@fontsource/geist-sans';
+import '@fontsource/geist-mono';
+
+// COMPOSANTS
 import Footer from '../components/site/Footer.astro';
 import Navbar from '../components/site/Navbar.astro';
 import { Toaster } from '../components/ui/Toaster';
 
+// PROPS
 interface Props {
 	title?: string;
 	description?: string;
@@ -18,6 +26,7 @@ const {
 <!doctype html>
 <html lang="fr" class="dark">
 	<head>
+		<!-- Meta -->
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
@@ -28,11 +37,6 @@ const {
 		<meta name="twitter:card" content="summary_large_image" />
 		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 		<title>{title}</title>
-		
-		<!-- Integration des polices  -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" />
 	</head>
 
 	<body>

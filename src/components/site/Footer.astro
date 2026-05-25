@@ -56,11 +56,17 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
   <!-- copyright -->
   <div class="border-t border-border/60">
     <div class="mx-auto max-w-6xl px-4 py-5 text-xs font-mono text-muted-foreground flex flex-wrap justify-between gap-2">
-      <!-- TODO: configurer le copyright pour l'année en cours -->
-      <span>© 2026 Jonathan. Tous droits réservés.</span>
-      <!-- TODO: Reduire la taille du texte -->
-      <span>Développé avec · Astro · Tailwind CSS | Typographie · Geist</span>
+      <span id="copyright-year">© Jonathan. Tous droits réservés.</span>
+      <span class="text-[10px] opacity-75">Développé avec Astro · Tailwind CSS | Typographie Geist</span>
     </div>
   </div>
+
+  <script>
+    // Récupération de l'année en cours via JS Vanilla et injection dans le DOM
+    const yearSpan = document.getElementById('copyright-year');
+    if (yearSpan) {
+      yearSpan.textContent = `© ${new Date().getFullYear()} Jonathan. Tous droits réservés.`;
+    }
+  </script>
 
 </footer>

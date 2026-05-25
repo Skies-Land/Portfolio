@@ -3,20 +3,20 @@
 Ce document résume la configuration technique du projet de **portfolio**.
 
 ## 🛠️ Stacks
-* **Framework front :** **[Astro](https://docs.astro.build/fr/getting-started/)**
-* **Composants dynamique :** **[React](https://react.dev/)**
-* **Langage :** **[TypeScript](https://www.typescriptlang.org/)**
-* **Données :** **[Markdown](https://docs.framasoft.org/fr/grav/markdown.html)**
-* **Styling :** **[Tailwind CSS](https://tailwindcss.com/)**
-* **Icons :** **[React Icons](https://react-icons.github.io/react-icons/)**
+* <img src="../src/assets/svg/astrojs.svg" width="18" align="center" /> **Framework front :** **[Astro](https://docs.astro.build/fr/getting-started/)**
+* <img src="../src/assets/svg/react.svg" width="18" align="center" /> **Composants dynamique :** **[React](https://react.dev/)**
+* <img src="../src/assets/svg/typescript.svg" width="18" align="center" /> **Langage :** **[TypeScript](https://www.typescriptlang.org/)**
+* <img src="../src/assets/svg/markdown.svg" width="18" align="center" /> **Données :** **[Markdown](https://docs.framasoft.org/fr/grav/markdown.html)**
+* <img src="../src/assets/svg/tailwind-css.svg" width="18" align="center" /> **Styling :** **[Tailwind CSS](https://tailwindcss.com/)**
+* <img src="../src/assets/svg/react-icons.svg" width="18" align="center" /> **Icons :** **[React Icons](https://react-icons.github.io/react-icons/)**
 
 ## 📦 Dépendances principales
-* **[Marked](https://marked.js.org/)** : Parseur léger pour compiler les données Markdown (Fichiers YAML) en HTML.
-* **[Sonner](https://sonner.emilkowal.ski/)** : Système de notifications Toast moderne et accessible pour React.
-* **[Tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate)** : Plugin Tailwind pour simplifier la création d'animations fluides.
+* <img src="../src/assets/svg/marked.svg" width="18" align="center" /> **[Marked](https://marked.js.org/)** : Parseur léger pour compiler les données Markdown (Fichiers YAML) en HTML.
+* 🔔 **[Sonner](https://sonner.emilkowal.ski/)** : Système de notifications Toast moderne et accessible pour React.
+* <img src="../src/assets/svg/tailwind-css.svg" width="18" align="center" /> **[Tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate)** : Plugin Tailwind pour simplifier la création d'animations fluides.
 
 ## 🚀 Déploiement
-* **Hébergement :** **[Netlify](https://www.netlify.com/)**
+* <img src="../src/assets/svg/netlify.svg" width="18" align="center" /> **Hébergement :** **[Netlify](https://www.netlify.com/)**
 * **Déploiement :** CI/CD via GitHub
 
 ## 🎨 Palette de couleurs

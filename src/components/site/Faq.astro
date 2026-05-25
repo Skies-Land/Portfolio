@@ -10,6 +10,8 @@ const Faqs = frontmatter.Faqs;
 
 <section class="py-12 sm:py-16">
     <div class="mx-auto max-w-3xl px-4">
+
+        <!-- Titre et sous-titre -->
         <p class="font-mono text-xs text-primary mb-4 text-center">// faq</p>
         <h3
             class="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-10"
@@ -17,6 +19,7 @@ const Faqs = frontmatter.Faqs;
             En savoir plus en quelques questions
         </h3>
 
+        <!-- Composant menu déroulant -->
         <Accordion items={Faqs} client:idle />
     </div>
 </section>
