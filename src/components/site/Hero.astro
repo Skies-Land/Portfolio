@@ -5,6 +5,11 @@ import { FaArrowDown } from "react-icons/fa";
 // IMAGE
 import { Image } from "astro:assets";
 import IMG_Profil from "../../assets/images/IMG-profil.png";
+
+// IMPORT DES DONNÉES DEPUIS LE MARKDOWN
+import { frontmatter } from "../../data/Profile.md";
+
+const profile = frontmatter.profile;
 ---
 
 <section id="home" class="relative pt-36 pb-24 sm:pt-44 sm:pb-32">
@@ -15,29 +20,28 @@ import IMG_Profil from "../../assets/images/IMG-profil.png";
                 <!-- Disponibilité -->
                 <div class="inline-flex items-center gap-2 rounded-full border border-border/80 bg-surface/60 px-3 py-1 font-mono text-xs text-muted-foreground">
                     <span class="size-1.5 rounded-full bg-success animate-pulse"></span>
-                    Disponible.
+                    {profile.availability}
                 </div>
 
                 <!-- Titre -->
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05] text-gradient">
-                    Concepteur développeur web <br />
-                    <span class="text-muted-foreground text-[50px]">Front-End / Full-Stack</span>
+                    {profile.title} <br />
+                    <span class="text-muted-foreground text-[50px]">{profile.subtitle}</span>
                 </h1>
 
                 <!-- Description -->
                 <p class="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
-                    Je conçois des architectures web modernes, robustes et centrées sur
-                    l'expérience utilisateur. Mon focus : la performance, la lisibilité du
-                    code et les meilleures pratiques d'ingénierie.
+                    {profile.description}
                 </p>
 
                 <!-- Technologies -->
                 <div class="flex items-center gap-4 font-mono text-xs text-muted-foreground pt-2">
-                    <span>React</span>
-                    <span class="text-border">·</span>
-                    <span>TypeScript</span>
-                    <span class="text-border">·</span>
-                    <span>Astro</span>
+                    {profile.stack.map((tech: string, index: number) => (
+                        <>
+                            <span>{tech}</span>
+                            {index < profile.stack.length - 1 && <span class="text-border">·</span>}
+                        </>
+                    ))}
                 </div>
             </div>
 

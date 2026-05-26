@@ -4,6 +4,19 @@ import { FiGithub, FiCodepen, FiLinkedin, FiMail } from "react-icons/fi";
 
 // COMPOSANT
 import { ContactForm } from "../ui/ContactForm";
+
+// IMPORT DES DONNÉES DEPUIS LE MARKDOWN
+import { frontmatter } from "../../data/Socials.md";
+
+const email = frontmatter.email;
+const socials = frontmatter.socials;
+
+// MAPPING DES ICÔNES
+const iconMap: Record<string, any> = {
+    Github: FiGithub,
+    Codepen: FiCodepen,
+    Linkedin: FiLinkedin
+};
 ---
 
 <section id="contact" class="py-24 sm:py-32">
@@ -28,47 +41,30 @@ import { ContactForm } from "../ui/ContactForm";
                         Réseaux & Code
                     </p>
                     <div class="flex flex-col gap-3">
+                        {socials.map((s: any) => {
+                            const IconComponent = iconMap[s.icon];
+                            return (
+                                <a
+                                    href={s.url}
+                                    target="_blank"
+                                    rel="noreferrer noopener"
+                                    class="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
+                                >
+                                    <span class="size-9 rounded-md border border-border/60 grid place-items-center group-hover:border-primary/40 transition-colors">
+                                        <IconComponent size={15} />
+                                    </span>
+                                    {s.label}
+                                </a>
+                            );
+                        })}
                         <a
-                            href="https://github.com/Skies-Land"
-                            target="_blank"
-                            rel="noreferrer noopener"
-                            class="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
-                        >
-                            <span class="size-9 rounded-md border border-border/60 grid place-items-center group-hover:border-primary/40 transition-colors">
-                                <FiGithub size={15} />
-                            </span>
-                            Voir mes dépôts GitHub
-                        </a>
-                        <a
-                            href="https://codepen.io/Skies-Land"
-                            target="_blank"
-                            rel="noreferrer noopener"
-                            class="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
-                        >
-                            <span class="size-9 rounded-md border border-border/60 grid place-items-center group-hover:border-primary/40 transition-colors">
-                                <FiCodepen size={15} />
-                            </span>
-                            Voir mes projets CodePen
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/jonathan-araldi/"
-                            target="_blank"
-                            rel="noreferrer noopener"
-                            class="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
-                        >
-                            <span class="size-9 rounded-md border border-border/60 grid place-items-center group-hover:border-primary/40 transition-colors">
-                                <FiLinkedin size={15} />
-                            </span>
-                            Mon profil LinkedIn
-                        </a>
-                        <a
-                            href="mailto:jonathan.araldi@outlook.com"
+                            href={`mailto:${email}`}
                             class="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
                         >
                             <span class="size-9 rounded-md border border-border/60 grid place-items-center group-hover:border-primary/40 transition-colors">
                                 <FiMail size={15} />
                             </span>
-                            jonathan.araldi@outlook.com
+                            {email}
                         </a>
                     </div>
                 </div>

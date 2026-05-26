@@ -14,7 +14,7 @@ projets:
     coverImage: /projet-m-motors.png
     longDescription: Conçu dans le cadre de ma formation de **Développeur d'Application Web (Bac+3)**. M-Motors est une application web complète qui met en relation des utilisateurs pour la vente et la location de véhicules. L'enjeu majeur était de concevoir une architecture front-end capable de s'interfacer de manière sécurisée avec une base de données cloud NoSQL, avec la digitalisation d'un tunnel d'achat complet.
     role: Développeur d'application web
-    expertiseAngle: L'angle Full-Stack
+    expertiseAngle: Full-Stack
     architecture: [NoSQL, Authentification JWT, Déploiement Cloud]
     skills:
       - Conception d'une architecture client-serveur découplée (Vite/FastAPI)
@@ -30,7 +30,7 @@ projets:
       Le développement s'est organisé :
       - **Conception** : Définition des fonctionnalités clés pour le MVP, état de l'art du des outils et méthodologies pour proposer une solution adéquate.
       - **Gestion et pilotage** : Choix de l'approche Agile, préparation des user stories, gestion des risques via une matrice de criticité, et mise en place d'un plan de tests.
-      - **Développement** : Prototypage de maquette avec l'IA, création d'une base de données NoSQL avec **MongoDB** et stockage des images sur **Cloudinary**. Développement du front-end, (page de catalogue, espace client) etc. Développement du back-end avec mise en place de l'authentification **JWT** et sécurisation des routes.
+      - **Développement** : Prototypage de maquette avec **l'IA**, création d'une base de données NoSQL avec **MongoDB** et stockage des images sur **Cloudinary**. Développement du front-end, (page de catalogue, espace client) etc. Développement du back-end avec mise en place de l'authentification **JWT** et sécurisation des routes.
       - **Déploiement** : CI/CD sur **Netlify** (Front) et **Render** (Back).
       - **Documentation** : Pour offrir une transparence totale sur l'architecture et les choix techniques, une documentation complète est disponible sur le dépôt GitHub.
     Result: |
@@ -52,7 +52,7 @@ projets:
     coverImage: /projet-coders-monkeys.png
     longDescription: Création d'une application web complète destinée aux développeurs front-end pour partager leurs projets et s'entraider. Ce projet m'a permis de concevoir une architecture moderne avec Next.js et d'intégrer un écosystème Serverless complet avec Firebase pour la base de données, l'authentification et le stockage.
     role: Développeur Front-End
-    expertiseAngle: L'angle Architecture Data & Back-end
+    expertiseAngle: Architecture Data & Back-end
     architecture: [Serverless, App Router, Real-time Database]
     skills:
       - Maîtrise des concepts d'architecture Next.js (App Router, Server Components)
@@ -89,7 +89,7 @@ projets:
     coverImage: /projet-kasa.png
     longDescription: Dans le cadre de ma formation d'Intégrateur Web, ce projet m'a permis de construire le front-end d'une application web de location de logements entre particuliers. L'accent a été mis sur la création de composants modulaires et la gestion du routage multipages (SPA).
     role: Intégrateur Web
-    expertiseAngle: L'angle UI & UX
+    expertiseAngle: UI & UX
     architecture: [Component-Based UI, Routing]
     skills:
       - Conception de composants d'interface hautement modulaires et réutilisables (React)
@@ -120,7 +120,7 @@ projets:
     coverImage: /projet-nina-carducci.png
     longDescription: "Mission d'optimisation pour le portfolio d'une photographe. Ce projet était purement centré sur la qualité logicielle et visuelle : analyser un site existant, identifier ses goulots d'étranglement, et refactoriser son code pour le rendre extrêmement performant et accessible."
     role: Développeur web / Expert SEO
-    expertiseAngle: L'angle Performance & SEO
+    expertiseAngle: Performance & SEO
     architecture: [Optimisation Front-End]
     skills:
       - Audit et identification des goulots d'étranglement avec Lighthouse et Wave

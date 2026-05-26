@@ -1,6 +1,20 @@
 ---
 // ICÔNES
 import { FaGithub, FaCodepen, FaLinkedin } from "react-icons/fa";
+
+// IMPORT DES DONNÉES DEPUIS LE MARKDOWN
+import { frontmatter as profileData } from "../../data/Profile.md";
+import { frontmatter as socialsData } from "../../data/Socials.md";
+
+const profile = profileData.profile;
+const socials = socialsData.socials;
+
+// MAPPING DES ICÔNES
+const iconMap: Record<string, any> = {
+    Github: FaGithub,
+    Codepen: FaCodepen,
+    Linkedin: FaLinkedin
+};
 ---
 
 <footer class="border-t border-border/60 mt-32">
@@ -12,8 +26,7 @@ import { FaGithub, FaCodepen, FaLinkedin } from "react-icons/fa";
         J.A. <span class="text-muted-foreground">/</span> Dev
       </a>
       <p class="text-sm text-muted-foreground mt-3 max-w-xs">
-        Concepteur développeur web. Architectures modernes, code lisible,
-        documentation & exécution rigoureuse.
+        {profile.footerDescription}
       </p>
     </div>
 
@@ -32,34 +45,20 @@ import { FaGithub, FaCodepen, FaLinkedin } from "react-icons/fa";
 
     <!-- Réseaux -->
     <div class="flex md:justify-end gap-3">
-      <a
-        href="https://github.com/Skies-Land"
-        target="_blank"
-        rel="noreferrer noopener"
-        aria-label="GitHub"
-        class="p-2 rounded-md border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
-      >
-        <FaGithub size={18} />
-      </a>
-      <a
-        href="https://codepen.io/Skies-Land"
-        target="_blank"
-        rel="noreferrer noopener"
-        aria-label="CodePen"
-        class="p-2 rounded-md border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
-      >
-        <FaCodepen size={18} />
-      </a>
-
-      <a
-        href="https://www.linkedin.com/in/jonathan-araldi/"
-        target="_blank"
-        rel="noreferrer noopener"
-        aria-label="LinkedIn"
-        class="p-2 rounded-md border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
-      >
-        <FaLinkedin size={18} />
-      </a>
+      {socials.map((s: any) => {
+        const IconComponent = iconMap[s.icon];
+        return (
+          <a
+            href={s.url}
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label={s.name}
+            class="p-2 rounded-md border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
+          >
+            <IconComponent size={18} />
+          </a>
+        );
+      })}
     </div>
   </div>
 

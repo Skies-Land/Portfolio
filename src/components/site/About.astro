@@ -1,6 +1,11 @@
 ---
 // ICÔNE
 import { FiFileText } from "react-icons/fi";
+
+// IMPORT DES DONNÉES DEPUIS LE MARKDOWN
+import { frontmatter } from "../../data/About.md";
+
+const about = frontmatter.about;
 ---
 
 <section id="about" class="py-24 sm:py-32">
@@ -11,42 +16,31 @@ import { FiFileText } from "react-icons/fi";
             <div class="lg:col-span-5">
                 <p class="font-mono text-xs text-primary mb-4">// mon approche</p>
                 <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight leading-tight">
-                    Conception pragmatique. <br />
-                    <span class="text-muted-foreground">Exécution millimétrée.</span>
+                    {about.title} <br />
+                    <span class="text-muted-foreground">{about.subtitle}</span>
                 </h2>
             </div>
 
             <!-- Description -->
             <div class="lg:col-span-7 space-y-7">
-                <p class="text-muted-foreground leading-relaxed">
-                    Je construis des applications web où la logique prime sur le superflu.
-                    Mon approche du développement est centrée sur l'objectivité, l'analyse
-                    préalable et la réduction de la complexité. Qu'il s'agisse d'optimiser
-                    une interface React ou de modéliser une base de données NoSQL, je
-                    privilégie des solutions pérennes, rigoureusement testées et conformes
-                    aux standards de l'industrie.
-                </p>
-                <p class="text-muted-foreground leading-relaxed">
-                    Mon environnement de prédilection ? Le{" "}
-                    <span class="text-foreground font-medium">"Deep Work"</span> : un cadre
-                    structuré et calme permettant une concentration absolue pour résoudre des
-                    problèmes techniques pointus sans dispersion.
-                </p>
+                {about.paragraphs.map((p: string) => (
+                    <p class="text-muted-foreground leading-relaxed" set:html={p} />
+                ))}
 
                 <!-- Boutons CTA -->
                 <div class="flex flex-wrap gap-3 pt-2">
                     <a
-                        href="#contact"
+                        href={about.ctaPrimary.link}
                         class="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity">
-                        Discutons d'opportunité
+                        {about.ctaPrimary.label}
                     </a>
                     <a
-                        href="https://drive.google.com/file/d/1KVTa_3OE9NotocxUv6WZbyBLhlGACUcj/view?usp=sharing"
+                        href={about.ctaSecondary.link}
                         target="_blank"
                         rel="noreferrer noopener"
                         class="inline-flex items-center gap-2 rounded-lg border border-border bg-transparent px-5 py-2.5 text-sm font-medium text-foreground hover:bg-white/5 hover:border-primary/40 transition-colors">
                         <FiFileText size={15} />
-                        Consulter mon CV
+                        {about.ctaSecondary.label}
                     </a>
                 </div>
             </div>
