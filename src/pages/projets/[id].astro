@@ -22,8 +22,8 @@ export async function getStaticPaths() {
 
 const { project, allProjects } = Astro.props;
 
-// Récupération des 2 autres projets pour la section "Suite"
-const others = allProjects.filter((p: any) => p.id !== project.id).slice(0, 2);
+// Récupération de tous les autres projets pour la section "Suite"
+const others = allProjects.filter((p: any) => p.id !== project.id);
 ---
 
 <Layout>
@@ -40,6 +40,14 @@ const others = allProjects.filter((p: any) => p.id !== project.id).slice(0, 2);
                 <span>{project.year}</span>
                 <span class="text-border">·</span>
                 <span>{project.type}</span>
+                {project.expertiseAngle && (
+                    <>
+                        <span class="text-border">·</span>
+                        <span class="inline-flex items-center px-2 py-0.5 rounded bg-primary/10 border border-primary/20 text-primary font-medium">
+                            {project.expertiseAngle}
+                        </span>
+                    </>
+                )}
             </div>
 
             <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight leading-tight text-gradient">
@@ -60,12 +68,18 @@ const others = allProjects.filter((p: any) => p.id !== project.id).slice(0, 2);
                 />
             </div>
 
-            <div class="grid sm:grid-cols-3 gap-6 mt-12 surface-card rounded-2xl p-6">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 surface-card rounded-2xl p-6">
                 <div>
                     <p class="font-mono text-[10px] uppercase tracking-wider text-muted-foreground mb-3">
                         Rôle
                     </p>
                     <p class="text-sm text-foreground leading-relaxed">{project.role}</p>
+                </div>
+                <div>
+                    <p class="font-mono text-[10px] uppercase tracking-wider text-muted-foreground mb-3">
+                        Angle Visé
+                    </p>
+                    <p class="text-sm text-primary font-medium leading-relaxed">{project.expertiseAngle || "N/A"}</p>
                 </div>
                 <div>
                     <p class="font-mono text-[10px] uppercase tracking-wider text-muted-foreground mb-3">
@@ -104,30 +118,52 @@ const others = allProjects.filter((p: any) => p.id !== project.id).slice(0, 2);
                 </div>
             </div>
 
+            {project.skills && project.skills.length > 0 && (
+                <div class="mt-16 pt-12 border-t border-border/60">
+                    <h2 class="text-xl font-semibold tracking-tight mb-6">Compétences cibles & Apports</h2>
+                    <ul class="grid sm:grid-cols-2 gap-4 list-none pl-0">
+                        {project.skills.map((skill: string) => (
+                            <li class="flex items-start gap-3 text-muted-foreground leading-relaxed">
+                                <span class="flex items-center justify-center size-5 rounded-full bg-primary/10 text-primary border border-primary/20 shrink-0 mt-0.5">
+                                    <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </span>
+                                <span class="text-sm">{skill}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+
             <div class="mt-16 flex flex-wrap gap-3">
-                <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
-                >
-                    <FiExternalLink size={15} />
-                    Voir le projet
-                </a>
-                <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium hover:bg-white/5 transition-colors"
-                >
-                    Code source
-                </a>
+                {project.liveUrl && project.liveUrl.trim() !== "" && project.liveUrl !== "#" && (
+                    <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
+                    >
+                        <FiExternalLink size={15} />
+                        Voir le projet
+                    </a>
+                )}
+                {project.githubUrl && project.githubUrl.trim() !== "" && project.githubUrl !== "#" && (
+                    <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-medium hover:bg-white/5 transition-colors"
+                    >
+                        Code source
+                    </a>
+                )}
             </div>
 
             {others.length > 0 && (
                 <div class="mt-24 pt-12 border-t border-border/60">
                     <p class="font-mono text-xs text-primary mb-6">// suite</p>
-                    <div class="grid sm:grid-cols-2 gap-5">
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
                         {others.map((p: any) => (
                             <a
                                 href={`/projets/${p.id}`}

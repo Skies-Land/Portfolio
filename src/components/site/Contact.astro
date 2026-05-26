@@ -1,6 +1,6 @@
 ---
 // ICÔNES
-import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+import { FiGithub, FiCodepen, FiLinkedin, FiMail } from "react-icons/fi";
 
 // COMPOSANT
 import { ContactForm } from "../ui/ContactForm";
@@ -13,7 +13,7 @@ import { ContactForm } from "../ui/ContactForm";
 
                 <!-- Titre et sous-titre -->
                 <div>
-                    <p class="font-mono text-xs text-primary mb-4">// contact</p>
+                    <p class="font-mono text-xs text-primary mb-4">// me contacter</p>
                     <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight leading-tight">
                         Prêt à structurer votre prochain projet ?
                     </h2>
@@ -38,6 +38,17 @@ import { ContactForm } from "../ui/ContactForm";
                                 <FiGithub size={15} />
                             </span>
                             Voir mes dépôts GitHub
+                        </a>
+                        <a
+                            href="https://codepen.io/Skies-Land"
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            class="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group"
+                        >
+                            <span class="size-9 rounded-md border border-border/60 grid place-items-center group-hover:border-primary/40 transition-colors">
+                                <FiCodepen size={15} />
+                            </span>
+                            Voir mes projets CodePen
                         </a>
                         <a
                             href="https://www.linkedin.com/in/jonathan-araldi/"

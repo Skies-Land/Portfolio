@@ -4,7 +4,7 @@ import { FaArrowDown } from "react-icons/fa";
 
 // IMAGE
 import { Image } from "astro:assets";
-import IMG_Placeholder from "../../assets/images/IMG_Profil_Placeholder.webp";
+import IMG_Profil from "../../assets/images/IMG-profil.png";
 ---
 
 <section id="home" class="relative pt-36 pb-24 sm:pt-44 sm:pb-32">
@@ -20,8 +20,8 @@ import IMG_Placeholder from "../../assets/images/IMG_Profil_Placeholder.webp";
 
                 <!-- Titre -->
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05] text-gradient">
-                    Concepteur Développeur Web <br />
-                    <span class="text-muted-foreground">Front-End / Full-Stack</span>
+                    Concepteur développeur web <br />
+                    <span class="text-muted-foreground text-[50px]">Front-End / Full-Stack</span>
                 </h1>
 
                 <!-- Description -->
@@ -43,9 +43,9 @@ import IMG_Placeholder from "../../assets/images/IMG_Profil_Placeholder.webp";
 
             <!-- Image de profil -->
             <div class="relative justify-self-center lg:justify-self-end">
-                <div class="absolute -inset-4 rounded-3xl bg-linear-to-tr from-primary/30 via-transparent to-transparent blur-2xl"></div>
-                <div class="relative size-56 sm:size-72 rounded-3xl overflow-hidden border border-white/10 surface-card">
-                    <Image src={IMG_Placeholder} alt="Portrait de Jonathan, développeur web" width={800} height={1024} class="size-full object-cover" />
+                <div class="absolute -inset-4  bg-linear-to-tr from-primary/30 via-transparent to-transparent blur-2xl"></div>
+                <div class="relative w-56 sm:w-72 aspect-4/5 rounded-3xl overflow-hidden border border-white/10 surface-card">
+                    <Image src={IMG_Profil} alt="Portrait de Jonathan, développeur web" width={800} height={1024} class="size-full object-cover object-top" />
                 </div>
             </div>
         </div>

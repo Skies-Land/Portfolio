@@ -15,7 +15,6 @@
 - 🚀 **Routing dynamique** : Génération statique (SSG) des pages de projets via des fichiers Markdown.
 
 ## 🧰 **STACKS UTILISÉS**
-
 <p align="center">
   <img src="./src/assets/svg/astrojs.svg" alt="Astro" width="30" /> &nbsp; &nbsp; &nbsp;
   <img src="./src/assets/svg/react.svg" alt="React" width="50" /> &nbsp; &nbsp; &nbsp;
