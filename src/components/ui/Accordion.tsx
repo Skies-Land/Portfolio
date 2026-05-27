@@ -6,7 +6,7 @@ import { FiChevronDown } from "react-icons/fi";
 
 // PROPS
 interface AccordionProps {
-  items: { q: string; a: string }[];
+  items: { q: string; a: string; categorie: string }[];
 }
 
 /** Logique fonctionne du menu déroulant de la section FAQ */
@@ -29,12 +29,17 @@ export default function Accordion({ items }: AccordionProps) {
           <div key={i} className="border-b border-border/60 last:border-0 faq-item">
             <button
               onClick={() => toggleItem(i)}
-              className="flex w-full cursor-pointer items-center justify-between text-left text-base font-medium hover:text-primary px-3 py-4"
+              className="flex w-full cursor-pointer items-center justify-between text-left hover:text-primary px-3 py-4 group"
               aria-expanded={isOpen}
             >
-              {it.q}
+              <div className="flex flex-col gap-1.5 pr-4">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-primary">
+                  // {it.categorie}
+                </span>
+                <span className="text-base font-medium transition-colors">{it.q}</span>
+              </div>
               <span className={`transition duration-300 ${isOpen ? "rotate-180" : ""}`}>
-                <FiChevronDown className="h-4 w-4 shrink-0 text-muted-foreground" />
+                <FiChevronDown className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-primary transition-colors" />
               </span>
             </button>
 
@@ -45,7 +50,7 @@ export default function Accordion({ items }: AccordionProps) {
             >
               <div className="overflow-hidden">
                 <div className="text-muted-foreground leading-relaxed px-3 pb-4">
-                  {it.a}
+                  {it.a} 
                 </div>
               </div>
             </div>

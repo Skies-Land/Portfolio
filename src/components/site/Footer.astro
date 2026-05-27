@@ -31,34 +31,32 @@ const iconMap: Record<string, any> = {
     </div>
 
     <!-- Navigation -->
-    <nav class="flex flex-col gap-2 text-sm">
-      <a href="/#home" class="text-muted-foreground hover:text-foreground">
-        Accueil
-      </a>
-      <a href="/#projets" class="text-muted-foreground hover:text-foreground">
-        Projets
-      </a>
-      <a href="/#services" class="text-muted-foreground hover:text-foreground">
-        Mes services
-      </a>
+    <nav class="flex flex-wrap md:justify-center gap-x-8 gap-y-2 text-sm">
+      <a href="/#home" class="text-muted-foreground hover:text-foreground">Accueil</a>
+      <a href="/#projets" class="text-muted-foreground hover:text-foreground">Projets</a>
+      <a href="/#services" class="text-muted-foreground hover:text-foreground">Mes services</a>
+      <a href="/#contact" class="text-muted-foreground hover:text-foreground">Contact</a>
     </nav>
 
     <!-- Réseaux -->
-    <div class="flex md:justify-end gap-3">
-      {socials.map((s: any) => {
-        const IconComponent = iconMap[s.icon];
-        return (
-          <a
-            href={s.url}
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label={s.name}
-            class="p-2 rounded-md border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
-          >
-            <IconComponent size={18} />
-          </a>
-        );
-      })}
+    <div class="flex flex-col md:items-end gap-3">
+      <span class="font-mono text-sm text-foreground">Me retrouver</span>
+      <div class="flex gap-3">
+        {socials.map((s: any) => {
+          const IconComponent = iconMap[s.icon];
+          return (
+            <a
+              href={s.url}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={s.name}
+              class="p-2 rounded-md border border-border/60 text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
+            >
+              <IconComponent size={18} />
+            </a>
+          );
+        })}
+      </div>
     </div>
   </div>
 

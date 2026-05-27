@@ -1,12 +1,6 @@
 # 👨‍💻 PORTFOLIO
-*Portfolio professionnel de conception et développement web Front-End / Full-Stack.*
+> *Méthodologie, choix techniques et workflow - Découvrez ma vision de l'ingénierie web à travers des cas pratiques.*
 
-<br>
-<div align="center">
-  <img src="./public/portfolio-preview.png" alt="Aperçu du Portfolio" width="800" />
-  <p><em>📸 Note : Image de prévisualisation, à venir...</em></p>
-</div>
-<br>
 
 ## ✨ **FONCTIONNALITÉS CLÉS**
 - 🌓 **Design UI/UX** : Thème sombre natif (Carbone profond), effet Glassmorphism, animations fluides.
