@@ -9,7 +9,9 @@ import '@fontsource/geist-mono';
 // COMPOSANTS
 import Footer from '../components/site/Footer.astro';
 import Navbar from '../components/site/Navbar.astro';
+// COMPOSANTS UI
 import { Toaster } from '../components/ui/Toaster';
+import { ScrollToTop } from '../components/ui/Scroll-to-top';
 
 // PROPS
 interface Props {
@@ -76,5 +78,6 @@ const {
 			<Footer />
 		</div>
 		<Toaster client:load />
+		<ScrollToTop client:load />
 	</body>
 </html>

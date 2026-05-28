@@ -8,6 +8,7 @@
 - 📱 **Responsive** : Interface totalement fluide et adaptée aux mobiles, tablettes et desktops.
 - 🚀 **Routing dynamique** : Génération statique (SSG) des pages de projets via des fichiers Markdown.
 - 📬 **Formulaire de contact** : Envoi direct d'emails via EmailJS.
+- ⬆️ **Retour en haut** : Bouton pour remonter en haut de la page visible à partir de 350px de scroll.
 
 ## 🧰 **STACKS UTILISÉS**
 <p align="center">
