@@ -1,5 +1,6 @@
 // DÉPENDANCE
 import React, { useState } from "react";
+import { marked } from "marked";
 
 // ICÔNE
 import { FiChevronDown } from "react-icons/fi";
@@ -49,9 +50,10 @@ export default function Accordion({ items }: AccordionProps) {
               }`}
             >
               <div className="overflow-hidden">
-                <div className="text-muted-foreground leading-relaxed px-3 pb-4">
-                  {it.a} 
-                </div>
+                <div 
+                  className="text-muted-foreground leading-relaxed px-3 pb-4 [&>ol]:list-decimal [&>ol]:pl-5 [&>ol]:mt-2 [&>ol]:mb-4 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:mt-2 [&>ul]:mb-4 [&_li]:mt-1.5 [&_strong]:text-foreground [&_strong]:font-medium"
+                  dangerouslySetInnerHTML={{ __html: marked.parse(it.a) as string }}
+                />
               </div>
             </div>
           </div>
