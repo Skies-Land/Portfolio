@@ -1,6 +1,7 @@
 ---
 // ICÔNE
 import { FiArrowUpRight } from "react-icons/fi";
+import { Image } from "astro:assets";
 
 // IMPORT DES DONNÉES DEPUIS LE MARKDOWN
 import { frontmatter } from "../../data/Projets.md";
@@ -13,6 +14,7 @@ const spanClass: Record<string, string> = {
 };
 
 const projets = frontmatter.projets;
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/projects/*.png');
 ---
 
 <section id="projets" class="py-24 sm:py-32">
@@ -41,11 +43,9 @@ const projets = frontmatter.projets;
                     class={`group surface-card rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-glow ${spanClass[p.span]}`}
                 >
                     <div class="aspect-16/10 overflow-hidden border-b border-white/5 bg-background">
-                        <img
-                            src={p.coverImage}
+                        <Image
+                            src={images[`/src/assets/images/projects${p.coverImage}`]()}
                             alt={p.title}
-                            width={1280}
-                            height={896}
                             loading="lazy"
                             class="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                         />

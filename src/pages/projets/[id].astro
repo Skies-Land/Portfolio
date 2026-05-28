@@ -1,6 +1,7 @@
 ---
 // COMPOSANT
 import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
 
 // ICÔNES
 import { FiArrowLeft, FiExternalLink } from "react-icons/fi";
@@ -20,10 +21,12 @@ export async function getStaticPaths() {
     }));
 }
 
-const { project, allProjects } = Astro.props;
+const { project, allProjects } = Astro.props as { project: any; allProjects: any[] };
 
 // Récupération de tous les autres projets pour la section "Suite"
 const others = allProjects.filter((p: any) => p.id !== project.id);
+// Import des images de projets
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/projects/*.png');
 ---
 
 <Layout>
@@ -59,11 +62,11 @@ const others = allProjects.filter((p: any) => p.id !== project.id);
             />
 
             <div class="mt-10 surface-card rounded-2xl overflow-hidden">
-                <img
-                    src={project.coverImage}
+                <Image
+                    src={images[`/src/assets/images/projects${project.coverImage}`]()}
                     alt={project.title}
-                    width={1280}
-                    height={896}
+                    fetchpriority="high"
+                    decoding="async"
                     class="w-full object-cover"
                 />
             </div>
@@ -79,7 +82,7 @@ const others = allProjects.filter((p: any) => p.id !== project.id);
                     <p class="font-mono text-[10px] uppercase tracking-wider text-muted-foreground mb-3">
                         Angle Visé
                     </p>
-                    <p class="text-sm text-primary font-medium leading-relaxed">{project.expertiseAngle || "N/A"}</p>
+                    <p class="text-sm text-foreground font-medium leading-relaxed">{project.expertiseAngle || "N/A"}</p>
                 </div>
                 <div>
                     <p class="font-mono text-[10px] uppercase tracking-wider text-muted-foreground mb-3">
@@ -170,8 +173,8 @@ const others = allProjects.filter((p: any) => p.id !== project.id);
                                 class="group surface-card rounded-2xl overflow-hidden hover:-translate-y-1 hover:border-primary/40 hover:shadow-glow transition-all"
                             >
                                 <div class="aspect-16/10 overflow-hidden border-b border-white/5">
-                                    <img
-                                        src={p.coverImage}
+                                    <Image
+                                        src={images[`/src/assets/images/projects${p.coverImage}`]()}
                                         alt={p.title}
                                         loading="lazy"
                                         class="size-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
