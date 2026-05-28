@@ -26,17 +26,45 @@ const {
 <!doctype html>
 <html lang="fr" class="dark">
 	<head>
-		<!-- Meta -->
+		<!--=============== BALISES META ===============-->
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="author" content="Jonathan" />
+		<meta name="copyright" content="© Jonathan Araldi" />
+		
+		<!-- Meta données pour Open Graph (Facebook, LinkedIn, etc.) -->
 		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://portfolio-jonathan-araldi.netlify.app/" />
 		<meta property="og:title" content={title} />
-		<meta property="og:description" content="Architectures web modernes, robustes et centrées sur l'expérience utilisateur." />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="https://portfolio-jonathan-araldi.netlify.app/preview-1-og-image.jpg" />
+		
+		<!-- Meta données pour Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content="https://portfolio-jonathan-araldi.netlify.app/" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content="https://portfolio-jonathan-araldi.netlify.app/preview-1-og-image.jpg" />
 		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+		
 		<title>{title}</title>
+
+		<!--=============== SCHEMA.ORG ===============-->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org/",
+				"@type": "Person",
+				"name": "Jonathan Araldi",
+				"description": "Portfolio de Jonathan Araldi, concepteur développeur web.",
+				"jobTitle": "Concepteur Développeur Web",
+				"url": "https://portfolio-jonathan-araldi.netlify.app/",
+				"sameAs": [
+					"https://www.linkedin.com/in/jonathan-araldi/",
+					"https://github.com/Skies-Land"
+				]
+			}
+		</script>
 	</head>
 
 	<body>

@@ -68,10 +68,11 @@ export function ContactForm() {
       <Field label="Sujet" name="user_subject" placeholder="votre-sujet" required />
 
       <div className="space-y-2">
-        <label className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+        <label htmlFor="user_message" className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
           Message
         </label>
         <textarea
+          id="user_message"
           name="user_message"
           rows={5}
           required
@@ -107,10 +108,11 @@ function Field({
 }) {
   return (
     <div className="space-y-2">
-      <label className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+      <label htmlFor={name} className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
         {label}
       </label>
       <input
+        id={name}
         type={type}
         name={name}
         required={required}
