@@ -1,6 +1,7 @@
 // DÉPENDANCES
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { toast } from "sonner";
+import emailjs from "@emailjs/browser";
 
 // ICÔNE
 import { FiSend } from "react-icons/fi";
@@ -8,44 +9,70 @@ import { FiSend } from "react-icons/fi";
 /** Composant de formulaire de contact */
 export function ContactForm() {
   const [sending, setSending] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSending(true);
-    
-    // Simulation d'un envoi de formulaire
-    setTimeout(() => {
-      setSending(false);
-      toast.success("Message envoyé", {
-        description: "Je vous réponds sous 48h ouvrées.",
+
+    const serviceID = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceID || !templateID || !publicKey) {
+      toast.error("Erreur de configuration", {
+        description: "Les clés d'API EmailJS sont manquantes.",
       });
-      (e.target as HTMLFormElement).reset();
-    }, 700);
+      setSending(false);
+      return;
+    }
+
+    emailjs
+      .sendForm(serviceID, templateID, formRef.current!, {
+        publicKey: publicKey,
+      })
+      .then(
+        () => {
+          setSending(false);
+          toast.success("Message envoyé avec succès !", {
+            description: "Je vous réponds sous 48h ouvrées.",
+          });
+          formRef.current?.reset();
+        },
+        (error) => {
+          setSending(false);
+          toast.error("Erreur lors de l'envoi", {
+            description: "Veuillez réessayer plus tard ou me contacter via LinkedIn.",
+          });
+          console.error("FAILED...", error.text);
+        }
+      );
   };
 
   return (
     <form
+      ref={formRef}
       onSubmit={onSubmit}
       className="lg:col-span-3 surface-card rounded-2xl p-6 sm:p-8 space-y-5"
     >
       <div className="grid sm:grid-cols-2 gap-5">
-        <Field label="Nom" name="name" placeholder="votre-nom" required />
+        <Field label="Nom" name="user_name" placeholder="votre-nom" required />
         <Field
           label="Email"
-          name="email"
+          name="user_email"
           type="email"
           placeholder="votre-adresse-mail"
           required
         />
       </div>
-      <Field label="Sujet" name="subject" placeholder="votre-sujet" required />
+      <Field label="Sujet" name="user_subject" placeholder="votre-sujet" required />
 
       <div className="space-y-2">
         <label className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
           Message
         </label>
         <textarea
-          name="message"
+          name="user_message"
           rows={5}
           required
           placeholder="Décrivez votre besoin, contexte, contraintes..."

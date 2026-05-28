@@ -7,6 +7,7 @@
 - ⚡ **Performances** : Optimisation maximale grâce au rendu statique d'Astro.
 - 📱 **Responsive** : Interface totalement fluide et adaptée aux mobiles, tablettes et desktops.
 - 🚀 **Routing dynamique** : Génération statique (SSG) des pages de projets via des fichiers Markdown.
+- 📬 **Formulaire de contact** : Envoi direct d'emails via EmailJS.
 
 ## 🧰 **STACKS UTILISÉS**
 <p align="center">
