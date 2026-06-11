@@ -10,5 +10,5 @@ about:
     link: "#contact"
   ctaSecondary:
     label: "Consulter mon CV"
-    link: "https://drive.google.com/file/d/1KVTa_3OE9NotocxUv6WZbyBLhlGACUcj/view?usp=sharing"
+    link: "https://drive.google.com/file/d/1Uygo7oUpOZS0wFBPwwdsyTQ6NxGNw9ds/view?usp=sharing"
 ---
