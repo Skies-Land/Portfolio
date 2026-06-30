@@ -15,10 +15,10 @@ Ce document résume la configuration technique du projet de **portfolio**.
 * 🔔 **[Sonner](https://sonner.emilkowal.ski/)** : Système de notifications Toast moderne et accessible pour React.
 * <img src="../src/assets/svg/tailwind-css.svg" width="18" align="center" /> **[Tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate)** : Plugin Tailwind pour simplifier la création d'animations fluides.
 * <img src="../src/assets/svg/email-js.svg" width="18" align="center" /> **[EmailJS](https://www.emailjs.com/)** : Service tiers permettant l'envoi d'emails pour le formulaire de contact.
+* ✨ **[clsx](https://github.com/lukeed/clsx)** : Utilitaire permettant de concaténer des noms de classes de manière conditionnelle.
 
 ## 🚀 Déploiement
-* <img src="../src/assets/svg/netlify.svg" width="18" align="center" /> **Hébergement :** **[Netlify](https://www.netlify.com/)**
-* **Déploiement :** CI/CD via GitHub
+* <img src="../src/assets/svg/netlify.svg" width="18" align="center" /> **Hébergement :** **[Netlify](https://www.netlify.com/)** CI/CD via GitHub
 
 ## 🎨 Palette de couleurs
 * **Fond Principal :** ` #0d0d0f ` *(Noir carbone profond)*.

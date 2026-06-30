@@ -1,4 +1,4 @@
-// DÉPENDANCE
+// DÉPENDANCES
 import React, { useState } from "react";
 import { marked } from "marked";
 

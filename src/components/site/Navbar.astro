@@ -2,16 +2,20 @@
 // ICÔNES
 import { FaBars, FaTimes } from "react-icons/fa";
 
+// COMPOSANT
+import Container from "../ui/Container";
+
 // Tableau des liens de navigation
 const links = [
     { href: "/#home", label: "Accueil" },
-    { href: "/#projets", label: "Projets" },
+    { href: "/#projets", label: "Mes projets" },
+    { href: "/#parcours", label: "Mon Parcours" },
     { href: "/#services", label: "Mes services" },
 ];
 ---
 
 <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 py-5">
-    <div class="mx-auto max-w-6xl px-4">
+    <Container>
 
         <!-- NavBar -->
         <div class="glass border border-white/5 rounded-2xl px-4 sm:px-6 py-3 flex items-center justify-between">
@@ -71,7 +75,7 @@ const links = [
                 Contactez-moi
             </a>
         </div>
-    </div>
+    </Container>
 </header>
 
 <script>

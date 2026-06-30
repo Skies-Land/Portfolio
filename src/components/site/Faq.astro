@@ -2,24 +2,27 @@
 // IMPORT DES DONNÉES DEPUIS LE MARKDOWN
 import { frontmatter } from "../../data/Faq.md";
 
-// IMPORT DE LA LOGIQUE 
+// COMPOSANTS
+import Container from "../ui/Container";
 import Accordion from "../ui/Accordion";
 
 const Faqs = frontmatter.Faqs;
 ---
 
-<section class="py-12 sm:py-16">
-    <div class="mx-auto max-w-3xl px-4">
-
-        <!-- Titre et sous-titre -->
-        <p class="font-mono text-xs text-primary mb-4 text-center">// faq</p>
-        <h3
-            class="text-2xl sm:text-3xl font-semibold tracking-tight text-center mb-10"
-        >
-            En savoir plus en 5 points
-        </h3>
+<section class="py-24 sm:py-32">
+    <Container>
+        <!-- Titre et description de la section -->
+        <div class="max-w-2xl mb-14">
+            <p class="font-mono text-xs text-primary mb-4">// faq</p>
+            <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight">
+                En savoir plus en 5 points
+            </h2>
+            <p class="text-muted-foreground mt-4 leading-relaxed">
+                Vous avez une question ? Trouvez les réponses à vos questions ici.
+            </p>
+        </div>
 
         <!-- Composant menu déroulant -->
         <Accordion items={Faqs} client:idle />
-    </div>
+    </Container>
 </section>

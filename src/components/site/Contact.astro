@@ -2,8 +2,9 @@
 // ICÔNES
 import { FiGithub, FiCodepen, FiLinkedin, FiMail } from "react-icons/fi";
 
-// COMPOSANT
+// COMPOSANTS
 import { ContactForm } from "../ui/ContactForm";
+import Container from "../ui/Container";
 
 // IMPORT DES DONNÉES DEPUIS LE MARKDOWN
 import { frontmatter } from "../../data/Socials.md";
@@ -20,7 +21,7 @@ const iconMap: Record<string, any> = {
 ---
 
 <section id="contact" class="py-24 sm:py-32">
-    <div class="mx-auto max-w-6xl px-4">
+    <Container>
         <div class="grid lg:grid-cols-5 gap-10">
             <div class="lg:col-span-2 space-y-8">
 
@@ -73,5 +74,5 @@ const iconMap: Record<string, any> = {
             <!-- Formulaire de contact -->
             <ContactForm client:visible />
         </div>
-    </div>
+    </Container>
 </section>

@@ -5,11 +5,14 @@ import { FiFileText } from "react-icons/fi";
 // IMPORT DES DONNÉES DEPUIS LE MARKDOWN
 import { frontmatter } from "../../data/About.md";
 
+// COMPOSANT
+import Container from "../ui/Container";
+
 const about = frontmatter.about;
 ---
 
 <section id="about" class="py-24 sm:py-32">
-    <div class="mx-auto max-w-6xl px-4">
+    <Container>
         <div class="grid lg:grid-cols-12 gap-10">
 
             <!-- Titre et sous-titre -->
@@ -45,5 +48,5 @@ const about = frontmatter.about;
                 </div>
             </div>
         </div>
-    </div>
+    </Container>
 </section>

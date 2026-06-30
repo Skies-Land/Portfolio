@@ -1,0 +1,106 @@
+---
+// ICÔNES
+import { FiCheckCircle, FiAward, FiBookOpen, FiFileText } from "react-icons/fi";
+
+// IMPORT DES DONNÉES DEPUIS LE MARKDOWN
+import { frontmatter as skillsData } from "../../data/Skills.md";
+import { frontmatter as diplomesData } from "../../data/Diplomes.md";
+import { frontmatter as certificatsData } from "../../data/Certificats.md";
+
+// COMPOSANTS
+import { FormationCard } from "../ui/FormationCard";
+import Container from "../ui/Container";
+
+const { skills, ecosystem } = skillsData;
+const { diplomes } = diplomesData;
+const { certificats } = certificatsData;
+
+/**
+ * Extrait l'année d'une chaîne de caractères représentant une date.
+ * Recherche les groupes de 4 chiffres et retourne le dernier trouvé.
+ * * @param {string} dateStr - La chaîne de caractères contenant la date à analyser.
+ * @returns {number} L'année sous forme d'entier, ou 0 si aucune année n'a été trouvée.
+ */
+const getYear = (dateStr: string) => {
+  const match = dateStr.match(/\d{4}/g);
+  return match ? parseInt(match[match.length - 1]) : 0;
+};
+
+/**
+ * Extrait le numéro du mois à partir d'une chaîne de caractères contenant une date en français.
+ * La recherche est insensible à la casse et vérifie la présence du nom du mois en toutes lettres.
+ * * @param {string} dateStr - La chaîne de caractères contenant la date à analyser.
+ * @returns {number} Le numéro du mois (de 1 pour janvier à 12 pour décembre), ou 0 si aucun mois n'est trouvé.
+ */
+const getMonth = (dateStr: string) => {
+  const months: Record<string, number> = { "janvier": 1, "février": 2, "mars": 3, "avril": 4, "mai": 5, "juin": 6, "juillet": 7, "août": 8, "septembre": 9, "octobre": 10, "novembre": 11, "décembre": 12 };
+  const lower = dateStr.toLowerCase();
+  for (const [m, num] of Object.entries(months)) {
+    if (lower.includes(m)) return num;
+  }
+  return 0;
+};
+
+// Fusion et tri des diplômes et certifications (du plus récent au plus ancien)
+const allFormations = [
+  ...diplomes.map((d: any) => ({ ...d, type: 'diplome', sortDate: getYear(d.date) * 100 + getMonth(d.date) })),
+  ...certificats.map((c: any) => ({ ...c, type: 'certificat', sortDate: getYear(c.date) * 100 + getMonth(c.date) }))
+].sort((a, b) => b.sortDate - a.sortDate);
+---
+
+<section id="parcours" class="py-24 sm:py-32 relative">
+  <Container>
+
+    {/* En-tête de section */}
+    <div class="max-w-2xl mb-16">
+      <p class="font-mono text-xs text-primary mb-4">// mon parcours</p>
+      <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-[#e4e4e7]">
+        Formations & Certifications
+      </h2>
+      <p class="text-[#a1a1aa] mt-4 leading-relaxed">
+        Un aperçu de mon parcours académique avec mes diplômes et mes formations continues, suivie de mon écosystème technique.
+      </p>
+    </div>
+
+    <div class="space-y-24">
+      {/* 1. TIMELINE : DIPLÔMES ET CERTIFICATIONS */}
+      <div>
+        <div class="relative max-w-4xl mx-auto mt-12">
+          {/* Ligne verticale (centrée sur desktop, à gauche sur mobile) */}
+          <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-[#2c2c2e] md:-translate-x-1/2"></div>
+
+          <div class="space-y-12">
+            {allFormations.map((item: any, index: number) => {
+              const isEven = index % 2 === 0;
+              return <FormationCard item={item} isEven={isEven} client:visible />;
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* 2. ÉCOSYSTÈME TECHNIQUE */}
+      <div>
+        <div class="flex items-center gap-3 mb-8">
+          <FiCheckCircle className="text-primary w-6 h-6" />
+          <h3 class="text-2xl font-medium text-[#e4e4e7]">Mon écosystème technique</h3>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {ecosystem.map((eco: any) => (
+            <div class="surface-card rounded-2xl p-6 border border-white/5 bg-[#1a1a1e]/80 backdrop-blur-sm transition-transform hover:-translate-y-1 hover:border-primary/30">
+              <h4 class="text-lg font-semibold text-[#e4e4e7] mb-4">{eco.title}</h4>
+              <div class="flex flex-wrap gap-2">
+                {eco.items.map((item: string) => (
+                  <span class="px-3 py-1 text-sm rounded-full bg-[#27272a] text-[#a1a1aa] border border-[#2c2c2e]">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </Container>
+</section>

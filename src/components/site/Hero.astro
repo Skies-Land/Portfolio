@@ -9,11 +9,14 @@ import IMG_Profil from "../../assets/images/IMG-profil.png";
 // IMPORT DES DONNÉES DEPUIS LE MARKDOWN
 import { frontmatter } from "../../data/Profile.md";
 
+// COMPOSANT
+import Container from "../ui/Container";
+
 const profile = frontmatter.profile;
 ---
 
 <section id="home" class="relative pt-36 pb-24 sm:pt-44 sm:pb-32">
-    <div class="mx-auto max-w-6xl px-4">
+    <Container>
         <div class="grid lg:grid-cols-[1fr_auto] gap-12 items-center">
             <div class="space-y-7 max-w-3xl">
 
@@ -61,5 +64,5 @@ const profile = frontmatter.profile;
             </span>
             Scroll pour explorer
         </a>
-    </div>
+    </Container>
 </section>
